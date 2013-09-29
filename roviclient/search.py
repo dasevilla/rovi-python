@@ -67,7 +67,7 @@ class SearchApi(RoviApi):
 
         Where ``entitiy_type`` is a comma separated list of:
 
-        ``movies``
+        ``movie``
             Movie
 
         ``tvseries``
