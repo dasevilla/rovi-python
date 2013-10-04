@@ -7,11 +7,14 @@ class VideoApi(RoviDataApi):
     """
 
     def make_request(self, resource, params=None):
+        """
+        Performs the API request. Most methods are a wrapper around this one.
+        """
         return super(VideoApi, self).make_request('video/%s' % resource, params)
 
     def _cosmoid_request(self, resource, cosmoid, **kwargs):
         """
-        Generic method for requests who's only parameter is ``cosmoid``
+        Maps to the Generic API method for requests who's only parameter is ``cosmoid``
         """
 
         params = {
@@ -25,7 +28,7 @@ class VideoApi(RoviDataApi):
         """
         Returns information about a movie, TV series, or TV program.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Info
+        Maps to the `info <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Info>`_ API method.
         """
 
         return self._cosmoid_request('info', cosmoid, **kwargs)
@@ -34,7 +37,7 @@ class VideoApi(RoviDataApi):
         """
         Returns information about a season of a TV series
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Season
+        Maps to the `season info <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Season>`_ API method.
         """
 
         resource = 'season/%d/info' % season
@@ -51,7 +54,7 @@ class VideoApi(RoviDataApi):
         """
         Returns information about an episode in a television series
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:SeasonEpisode
+        Maps to the `episode info <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:SeasonEpisode>`_ API method.
         """
 
         resource = 'season/%d/episode/%d/info' % (season, episode)
@@ -62,7 +65,7 @@ class VideoApi(RoviDataApi):
         """
         Returns awards a program has been nominated for or won.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Awards
+        Maps to the `awards <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Awards>`_ API method.
         """
 
         return self._cosmoid_request('awards', cosmoid, **kwargs)
@@ -71,7 +74,7 @@ class VideoApi(RoviDataApi):
         """
         Returns information about cast members with links to images.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Cast
+        Maps to the `cast <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Cast>`_ API method.
         """
 
         return self._cosmoid_request('cast', cosmoid, **kwargs)
@@ -80,7 +83,7 @@ class VideoApi(RoviDataApi):
         """
         Returns data you can use to construct links to trailers and video clips.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:VideoClips
+        Maps to the `clip <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:VideoClips>`_ API method.
         """
 
         return self._cosmoid_request('clip', cosmoid, **kwargs)
@@ -89,7 +92,7 @@ class VideoApi(RoviDataApi):
         """
         Returns information about crew members with links to images.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Crew
+        Maps to the `crew <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Crew>`_ API method.
         """
 
         return self._cosmoid_request('crew', cosmoid, **kwargs)
@@ -98,7 +101,7 @@ class VideoApi(RoviDataApi):
         """
         Returns information about a televised sporting event.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Event
+        Maps to the `event <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Event>`_ API method.
         """
 
         return self._cosmoid_request('event', cosmoid, **kwargs)
@@ -107,12 +110,12 @@ class VideoApi(RoviDataApi):
         """
         Returns movie and television program images.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Images
+        Maps to the `images <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Images>`_ API method. See also:
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V9.Common:ImageType
-        http://prod-doc.rovicorp.com/mashery/index.php/V9.Common:ImageOrder
-        http://prod-doc.rovicorp.com/mashery/index.php/ImageFormats
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.Metadata.Common:Image
+        - `Image <http://prod-doc.rovicorp.com/mashery/index.php/V1.Metadata.Common:Image>`_
+        - `ImageType <http://prod-doc.rovicorp.com/mashery/index.php/V9.Common:ImageType>`_
+        - `ImageOrder <http://prod-doc.rovicorp.com/mashery/index.php/V9.Common:ImageOrder>`_
+        - `ImageFormats <http://prod-doc.rovicorp.com/mashery/index.php/ImageFormats>`_
         """
 
         return self._cosmoid_request('images', cosmoid, **kwargs)
@@ -121,7 +124,7 @@ class VideoApi(RoviDataApi):
         """
         Returns keywords that apply to a movie, TV series, or TV program.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Keywords
+        Maps to the `keywords <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Keywords>`_ API method.
         """
 
         return self._cosmoid_request('keywords', cosmoid, **kwargs)
@@ -132,7 +135,7 @@ class VideoApi(RoviDataApi):
         television program, along with weightings that reflect the relative
         strength of each term.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Moods
+        Maps to the `moods <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Moods>`_ API method.
         """
 
         return self._cosmoid_request('moods', cosmoid, **kwargs)
@@ -141,7 +144,7 @@ class VideoApi(RoviDataApi):
         """
         Returns the parental ratings for a movie or television program.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:ParentalRatings
+        Maps to the `parental ratings <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:ParentalRatings>`_ API method.
         """
 
         return self._cosmoid_request('parentalratings', cosmoid, **kwargs)
@@ -151,7 +154,7 @@ class VideoApi(RoviDataApi):
         Returns movies, series, seasons, and programs that have a relationship
         with a movie, series, season, or program specified in the request.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Related
+        Maps to the `related <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Related>`_ API method.
         """
 
         return self._cosmoid_request('related', cosmoid, **kwargs)
@@ -160,7 +163,7 @@ class VideoApi(RoviDataApi):
         """
         Returns a professional review of a movie or program.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Review
+        Maps to the `review <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Review>`_ API method.
         """
 
         return self._cosmoid_request('review', cosmoid, **kwargs)
@@ -169,7 +172,7 @@ class VideoApi(RoviDataApi):
         """
         Returns a list of recent and upcoming television broadcasts of a movie or program.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Schedule
+        Maps to the `schedule <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Schedule>`_ API method.
         """
 
         return self._cosmoid_request('schedule', cosmoid, **kwargs)
@@ -180,7 +183,7 @@ class VideoApi(RoviDataApi):
         series. An optional argument returns season information in the response
         instead of a link to the information.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Seasons
+        Maps to the `seasons <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Seasons>`_ API method.
         """
 
         return self._cosmoid_request('seasons', cosmoid, **kwargs)
@@ -189,7 +192,7 @@ class VideoApi(RoviDataApi):
         """
         Returns the best available synopsis associated with a movie or program.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Synopsis
+        Maps to the `synopsis <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Synopsis>`_ API method.
         """
 
         return self._cosmoid_request('synopsis', cosmoid, **kwargs)
@@ -198,7 +201,7 @@ class VideoApi(RoviDataApi):
         """
         Returns a list of topics and circumstances that motivate or fit with a movie or program.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Themes
+        Maps to the `themes <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Themes>`_ API method.
         """
 
         return self._cosmoid_request('themes', cosmoid, **kwargs)
@@ -209,7 +212,7 @@ class VideoApi(RoviDataApi):
         program, along with weightings that reflect the relative strength of
         each term.
 
-        http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Tones
+        Maps to the `tones <http://prod-doc.rovicorp.com/mashery/index.php/V1.MetaData.VideoService.Video:Tones>`_ API method.
         """
 
         return self._cosmoid_request('tones', cosmoid, **kwargs)

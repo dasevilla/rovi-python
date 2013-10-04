@@ -50,6 +50,9 @@ class RoviApi(object):
         return '/'.join([self.ROVI_API_BASE, self.service, self.version, resource])
 
     def make_request(self, resource, params=None):
+        """
+        Performs the API request. Most methods are a wrapper around this one.
+        """
         if params is None:
             params = {}
 

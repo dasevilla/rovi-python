@@ -13,6 +13,9 @@ class SearchApi(RoviApi):
         super(SearchApi, self).__init__('search', 'v2.1', key, secret)
 
     def make_request(self, endpoint, entitiy_type, query, params=None):
+        """
+        Performs the API request. Most methods are a wrapper around this one.
+        """
         if params is None:
             params = {}
 
